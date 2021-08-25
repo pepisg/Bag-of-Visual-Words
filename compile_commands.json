@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/pepis/Documents/Bag-of-Visual-Words/bin/lib",
+  "command": "/usr/bin/g++   -I/home/pepis/Documents/Bag-of-Visual-Words/lib/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/bow_histogram/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/include -isystem /usr/local/include/opencv4    -std=gnu++17 -o CMakeFiles/bow_histogram.dir/bow_histogram/src/bow.cpp.o -c /home/pepis/Documents/Bag-of-Visual-Words/lib/bow_histogram/src/bow.cpp",
+  "file": "/home/pepis/Documents/Bag-of-Visual-Words/lib/bow_histogram/src/bow.cpp"
+},
+{
+  "directory": "/home/pepis/Documents/Bag-of-Visual-Words/bin/lib",
+  "command": "/usr/bin/g++   -I/usr/local/include/opencv4 -I/home/pepis/Documents/Bag-of-Visual-Words/lib/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/include    -std=gnu++17 -o CMakeFiles/convert_dataset.dir/serialization/src/convert_dataset.cpp.o -c /home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/src/convert_dataset.cpp",
+  "file": "/home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/src/convert_dataset.cpp"
+},
+{
+  "directory": "/home/pepis/Documents/Bag-of-Visual-Words/bin/lib",
+  "command": "/usr/bin/g++   -I/usr/local/include/opencv4 -I/home/pepis/Documents/Bag-of-Visual-Words/lib/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/include    -std=gnu++17 -o CMakeFiles/serialize.dir/serialization/src/serialize.cpp.o -c /home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/src/serialize.cpp",
+  "file": "/home/pepis/Documents/Bag-of-Visual-Words/lib/serialization/src/serialize.cpp"
+},
+{
+  "directory": "/home/pepis/Documents/Bag-of-Visual-Words/bin/lib",
+  "command": "/usr/bin/g++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/usr/local/include/opencv4 -I/home/pepis/Documents/Bag-of-Visual-Words/lib/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/imagebrowser/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/htmlwriter/include    -std=gnu++17 -o CMakeFiles/imagebrowser.dir/imagebrowser/image_browser.cpp.o -c /home/pepis/Documents/Bag-of-Visual-Words/lib/imagebrowser/image_browser.cpp",
+  "file": "/home/pepis/Documents/Bag-of-Visual-Words/lib/imagebrowser/image_browser.cpp"
+},
+{
+  "directory": "/home/pepis/Documents/Bag-of-Visual-Words/bin/lib",
+  "command": "/usr/bin/g++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/usr/local/include/opencv4 -I/home/pepis/Documents/Bag-of-Visual-Words/lib/include -I/home/pepis/Documents/Bag-of-Visual-Words/lib/htmlwriter/include    -std=gnu++17 -o CMakeFiles/htmlwriter.dir/htmlwriter/html_writer.cpp.o -c /home/pepis/Documents/Bag-of-Visual-Words/lib/htmlwriter/html_writer.cpp",
+  "file": "/home/pepis/Documents/Bag-of-Visual-Words/lib/htmlwriter/html_writer.cpp"
+}
+]
