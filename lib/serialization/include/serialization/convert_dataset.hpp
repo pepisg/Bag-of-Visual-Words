@@ -41,7 +41,8 @@ void ConvertDataset(const std::filesystem::path &img_path);
  * @return std::vector<cv::Mat> Containing all the SIFT features from the input
  * binary dataset.
  */
-std::vector<cv::Mat> LoadDataset(const std::filesystem::path &bin_path);
+std::vector<std::pair<cv::Mat, std::filesystem::path>>
+LoadDataset(const std::filesystem::path &bin_path);
 
 } // namespace ipb::serialization::sifts
 

@@ -3,39 +3,45 @@
 
 namespace fs = boost::filesystem;
 
-void html_writer::OpenDocument() { fmt::print("<!DOCTYPE html>\n<html>\n"); }
-
-void html_writer::CloseDocument() { fmt::print("</html>\n"); }
-
-void html_writer::AddCSSStyle(const std::string &stylesheet) {
-  fmt::print("<head>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"{}\" "
-             "/>\n</head>\n",
-             stylesheet);
+std::string html_writer::OpenDocument() {
+  return fmt::format("<!DOCTYPE html>\n<html>\n");
 }
 
-void html_writer::AddTitle(const std::string &title) {
-  fmt::print("<title>{}</title>\n", title);
+std::string html_writer::CloseDocument() { return fmt::format("</html>\n"); }
+
+std::string html_writer::AddCSSStyle(const std::string &stylesheet) {
+  return fmt::format(
+      "<head>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"{}\" "
+      "/>\n</head>\n",
+      stylesheet);
 }
 
-void html_writer::OpenBody() { fmt::print("<body>\n"); }
+std::string html_writer::AddTitle(const std::string &title) {
+  return fmt::format("<title>{}</title>\n", title);
+}
 
-void html_writer::CloseBody() { fmt::print("</body>\n"); }
+std::string html_writer::OpenBody() { return fmt::format("<body>\n"); }
 
-void html_writer::OpenRow() { fmt::print("<div class=\"row\">\n"); }
+std::string html_writer::CloseBody() { return fmt::format("</body>\n"); }
 
-void html_writer::CloseRow() { fmt::print("</div>\n"); }
+std::string html_writer::OpenRow() {
+  return fmt::format("<div class=\"row\">\n");
+}
 
-void html_writer::AddImage(const std::string &img_path, float score,
-                           bool highlight) {
+std::string html_writer::CloseRow() { return fmt::format("</div>\n"); }
+
+std::string html_writer::AddImage(const std::string &img_path, float score,
+                                  bool highlight) {
   if (fs::path(img_path).extension() == ".png" ||
       fs::path(img_path).extension() == ".jpg") {
     std::string style_string = highlight ? "border: 5px solid green;" : "";
-    fmt::print("<div class=\"column\" style=\"{0}\">\n<h2>{1}</h2>\n<img "
-               "src=\"{2}\" />\n<p>score = {3}</p>\n</div>\n",
-               style_string, fs::path(img_path).filename().string(), img_path,
-               fmt::format("{:.2f}", score));
+    return fmt::format(
+        "<div class=\"column\" style=\"{0}\">\n<h2>{1}</h2>\n<img "
+        "src=\"{2}\" />\n<p>score = {3}</p>\n</div>\n",
+        style_string, fs::path(img_path).filename().string(), img_path,
+        fmt::format("{:.2f}", score));
   } else {
-    fmt::print(stderr, "Invalid file extension");
+    return "";
   }
 }
 

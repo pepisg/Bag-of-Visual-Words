@@ -15,15 +15,18 @@ void ipb::BowDictionary::save_vocabulary(const std::string &filename) {
   ipb::serialization::Serialize(m_dictionary, filename);
 }
 
-ipb::Histogram::Histogram(std::vector<int> &data) {
+ipb::Histogram::Histogram(std::vector<float> &data) {
   matcher_ = cv::DescriptorMatcher::create(cv::DescriptorMatcher::FLANNBASED);
   data_ = data;
 }
 
-ipb::Histogram::Histogram(cv::Mat &descriptors, cv::Mat &dictionary) {
+ipb::Histogram::Histogram(cv::Mat &descriptors, cv::Mat &dictionary,
+                          std::filesystem::path filename) {
   matcher_ = cv::DescriptorMatcher::create(cv::DescriptorMatcher::FLANNBASED);
   knn_matches.clear();
+  matcher_->clear();
   matcher_->knnMatch(descriptors, dictionary, knn_matches, 1);
+  filename_ = filename;
   data_.resize(dictionary.rows);
   for (const auto &match : knn_matches) {
     data_[match[0].trainIdx]++;

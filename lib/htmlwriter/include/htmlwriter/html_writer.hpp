@@ -16,13 +16,13 @@ namespace html_writer {
  * HTML5 file. This function should be called only once at the begining of your
  * test program.
  */
-void OpenDocument();
+std::string OpenDocument();
 
 /**
  * @brief CloseDocument() will close the HTML5 file, this function should be
  * called only once at the end of your test program.
  */
-void CloseDocument();
+std::string CloseDocument();
 
 /**
  * @brief To make your application look nicer, you could opt for providing a
@@ -31,36 +31,36 @@ void CloseDocument();
  * @param stylesheet The path where the CSS file is located, typically
  * "<path>/style.css"
  */
-void AddCSSStyle(const std::string &stylesheet);
+std::string AddCSSStyle(const std::string &stylesheet);
 
 /**
  * @brief This function adds a Title to your web application
  *
  * @param title The string containing the title, could be as long as you wish.
  */
-void AddTitle(const std::string &title);
+std::string AddTitle(const std::string &title);
 
 /**
  * @brief This will open a <body> clause in your web application.
  */
-void OpenBody();
+std::string OpenBody();
 
 /**
  * @brief This will close a </body> clause in your web application.
  */
-void CloseBody();
+std::string CloseBody();
 
 /**
  * @brief This will open a new row division for your application, make sure the
  * class "row" is defined in the CSS file(if any).
  */
-void OpenRow();
+std::string OpenRow();
 
 /**
  * @brief This will close a  row division for your application, make sure you
  * only call this function after a OpenRow() call
  */
-void CloseRow();
+std::string CloseRow();
 
 /**
  * @brief This function will add a new image to your web application using the
@@ -72,7 +72,8 @@ void CloseRow();
  * @param score     The score of the given image
  * @param highlight In case to be the very first image, this must be true.
  */
-void AddImage(const std::string &img_path, float score, bool highlight = false);
+std::string AddImage(const std::string &img_path, float score,
+                     bool highlight = false);
 
 } // namespace html_writer
 

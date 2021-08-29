@@ -24,15 +24,15 @@ void ipb::serialization::sifts::ConvertDataset(
   }
 }
 
-std::vector<cv::Mat>
+std::vector<std::pair<cv::Mat, std::filesystem::path>>
 ipb::serialization::sifts::LoadDataset(const std::filesystem::path &bin_path) {
-  std::vector<cv::Mat> image_vector;
+  std::vector<std::pair<cv::Mat, std::filesystem::path>> image_vector;
   image_vector.reserve(
       (std::size_t)std::distance(std::filesystem::directory_iterator{bin_path},
                                  std::filesystem::directory_iterator{}));
   for (const auto image_path : std::filesystem::directory_iterator(bin_path)) {
     cv::Mat image = ipb::serialization::Deserialize(image_path.path().string());
-    image_vector.push_back(image);
+    image_vector.push_back(std::make_pair(image, image_path.path()));
   }
   return image_vector;
 }

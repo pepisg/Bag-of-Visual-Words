@@ -11,13 +11,17 @@ class PlaceRecognizer {
 public:
   PlaceRecognizer();
   explicit PlaceRecognizer(const std::string &dictionary_path,
-                           const std::string &bin_dataset_path);
-  ~PlaceRecognizer();
+                           const std::string &bin_dataset_path,
+                           const std::string &raw_dataset_path);
+  ~PlaceRecognizer(){};
 
   void find_places(const std::string &image_path);
   void find_places(cv::Mat image);
 
 private:
+  float cosine_distance(ipb::Histogram h1, ipb::Histogram h2);
+
+  std::vector<std::filesystem::path> raw_images_;
   ipb::BowDictionary &dictionary_ = ipb::BowDictionary::GetInstance();
   cv::Ptr<cv::xfeatures2d::SiftFeatureDetector> detector_ =
       cv::xfeatures2d::SiftFeatureDetector::create();
@@ -25,6 +29,8 @@ private:
       cv::xfeatures2d::SiftDescriptorExtractor::create();
   std::vector<ipb::Histogram> histograms_;
   std::vector<int> bin_frequency_;
+  cv::Mat descriptors_;
+  std::vector<cv::KeyPoint> keypoints_;
 };
 
 #endif

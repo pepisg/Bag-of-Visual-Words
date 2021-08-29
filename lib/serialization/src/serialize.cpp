@@ -40,7 +40,7 @@ cv::Mat ipb::serialization::Deserialize(const std::string &filename) {
   for (size_t i = 0; i < rows * cols * channels * element_size; i++) {
     bin_file.read(reinterpret_cast<char *>(&data[i]), sizeof(data[i]));
   }
-  std::cout << "File read successfully\n";
+  std::cout << "File " + filename + " read successfully\n";
   return m;
 }
 
